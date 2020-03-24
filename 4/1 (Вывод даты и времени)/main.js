@@ -1,0 +1,2 @@
+let date = new Date();
+console.log(date.getDate() + ' ' + date.getMonth()+ ' ' + date.getFullYear() + ' год, ', date.getHours() +' часов ', date.getMinutes() + ' минут', date.getSeconds() + ' секунд');
