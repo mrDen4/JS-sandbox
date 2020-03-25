@@ -6,12 +6,12 @@ let users = [
   },
   {
     login: 'alex',
-    password: 123,
+    password: 456,
     name: 'Алекс'
   },
   {
     login: 'petya',
-    password: 123,
+    password: 789,
     name: 'Петр'
   }
 ];
@@ -19,16 +19,19 @@ function authorization() {
   let login = prompt ('Введите логин');
   let password = prompt ('Введите пароль');
 
-  while (login != null || password != null) {
-    login = users.find(item => item.login == login);
-    password = users.find(item => item.password == password);
+  while (login != null && password != null) {
+    let user = users.find(item => item.login == login);
+    let pass = users.find(item => item.password == password);
     if (user == undefined || pass == undefined) {
       alert('Неправильный логин или пароль');
+      login = prompt ('Введите логин');
+      password = prompt ('Введите пароль');
     }
     if (user != undefined && pass != undefined) {
       alert('Привет ' + user.name);
+      login = null;
     }
-    alert(user == undefined);
+    console.log(login);
   };
 
 }
