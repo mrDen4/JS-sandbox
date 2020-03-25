@@ -1,2 +1,13 @@
 let date = new Date();
-console.log(date.getDate() + ' ' + date.getMonth()+ ' ' + date.getFullYear() + ' год, ', date.getHours() +' часов ', date.getMinutes() + ' минут', date.getSeconds() + ' секунд');
+let options = {
+    era: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    weekday: 'long',
+    timezone: 'UTC',
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric'
+  };
+  alert('Сегодня ' + date.toLocaleString('ru',options));
