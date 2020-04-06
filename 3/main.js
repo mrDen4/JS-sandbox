@@ -8,7 +8,7 @@ let isNumber = function(n) {
 
 function getUserNumber() {
     let userNumber = prompt('Введите число, чтобы угадать число от 1 до 1000!');
-    checkUserNumber(userNumber);
+    userNumber = checkUserNumber(userNumber);
     console.log(userNumber);
 
     return userNumber;  
@@ -39,7 +39,7 @@ function matchCheckWithRandomNumber() {
         if (userNumber > randomNumber) {
             userNumber = prompt('Вы ввели число больше загаданного, введите другое число');
         }
-        checkUserNumber(userNumber);
+        userNumber = checkUserNumber(userNumber);
     }
     if (userNumber == randomNumber) {
         alert('Поздравляем, вы угадали число!')
