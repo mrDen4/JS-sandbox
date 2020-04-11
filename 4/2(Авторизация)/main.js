@@ -15,20 +15,13 @@ let users = [
     name: 'Петр'
   }
 ];
+let login = prompt ('Введите логин');
+let password = prompt ('Введите пароль');
 
-function askLoginPassword() {
-  let login = prompt ('Введите логин');
-  let password = prompt ('Введите пароль');
+function authorization(login,password,users) {
   let user = users.find(item => item.login == login);
-
-  return {user: user, login: login, password: password};
-}
-
-function authorization() {
-  let loginPassword = askLoginPassword();
-  user = loginPassword.user; //Объект с данными пользователя
-  promptLogin = loginPassword.login; // Логин, который ввел пользователь в prompt
-  promptPassword = loginPassword.password; // Пароль, который ввел пользователь в prompt
+  promptLogin = user.login; // Логин, который ввел пользователь в prompt
+  promptPassword = user.password; // Пароль, который ввел пользователь в prompt
 
   while (user == undefined && promptLogin != null && promptPassword != null) {
       alert('Неправильный логин или пароль');
@@ -45,4 +38,4 @@ function authorization() {
   }
 }
 
-authorization();
+authorization(login,password,users);
