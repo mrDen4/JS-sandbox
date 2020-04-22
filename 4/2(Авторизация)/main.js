@@ -1,4 +1,4 @@
-let users = [
+const USERS = [
   {
     login: 'dennis',
     password: '123',
@@ -15,19 +15,19 @@ let users = [
     name: 'Петр'
   }
 ];
-let login = prompt ('Введите логин');
-let password = prompt ('Введите пароль');
+const LOGIN = prompt ('Введите логин');
+const PASSWORD = prompt ('Введите пароль');
 
 function authorization(login,password,users) {
-  let user = users.find(item => item.login == login);
+  const USER = users.find(item => item.login == login);
 
-  if (user == undefined && login != null && password != null || user.password != password) {
+  if (USER == undefined && login != null && password != null || USER.password != password) {
       alert('Неправильный логин или пароль');
   };
 
-  if (user.password == password) {
-    alert('Привет ' + user.name);
+  if (USER.password == password) {
+    alert('Привет ' + USER.name);
   }
 }
 
-authorization(login,password,users);
+authorization(LOGIN,PASSWORD,USERS);
