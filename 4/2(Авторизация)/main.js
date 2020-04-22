@@ -20,20 +20,12 @@ let password = prompt ('Введите пароль');
 
 function authorization(login,password,users) {
   let user = users.find(item => item.login == login);
-  promptLogin = user.login; // Логин, который ввел пользователь в prompt
-  promptPassword = user.password; // Пароль, который ввел пользователь в prompt
 
-  while (user == undefined && promptLogin != null && promptPassword != null) {
+  if (user == undefined && login != null && password != null || user.password != password) {
       alert('Неправильный логин или пароль');
-      user = askLoginPassword().user;
   };
 
-  while (user.password != promptPassword && promptLogin != null && promptPassword != null) {
-    alert('Неправильный логин или пароль');
-    promptPassword = askLoginPassword().password;
-  }
-
-  if (user.password == promptPassword) {
+  if (user.password == password) {
     alert('Привет ' + user.name);
   }
 }
