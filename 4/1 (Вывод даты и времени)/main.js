@@ -3,26 +3,24 @@ function declOfNum(number, titles) {
   return titles[ (number%100>4 && number%100<20)? 2 : cases[(number%10<5)?number%10:5] ]; 
 }
 
+const REPEAT_OUTPUT = 1000;
 let showDate = setInterval(function () {
   let date = new Date();
   let day = date.getDate();
-  let month = date.getMonth();
-  let daysOfTheWeek = [
-    'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье'
-  ];
-  let monthOfTheYear = [
-    'января', ' февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'
-  ];
+  let dayOfTheWeek = date.toLocaleString('ru-RU', {weekday: 'long'});
+  let monthOfTheYear = date.toLocaleString('ru-RU', {month: 'long'});
   let year = date.getFullYear();
-  let dayOfTheWeek = date.getDay();
   let hours = date.getHours();  
   let minutes = date.getMinutes();  
   let seconds = date.getSeconds();  
+  const DECLENSION_HOURS= ['час', 'часа', 'часов'];
+  const DECLENSION_MINUTES = ['минута', 'минуты', 'минут'];
+  const DECLENSION_SECONDS = ['секунда', 'секунды', 'секунд'];
   console.log('Сегодня', day, 
-    monthOfTheYear[month], 
+    monthOfTheYear, 
     year, 'года', 
-    daysOfTheWeek[dayOfTheWeek], 
-    hours, declOfNum(hours, ['час', 'часа', 'часов']), 
-    minutes, declOfNum(minutes, ['минута', 'минуты', 'минут']), 
-    seconds, declOfNum(seconds, ['секунда', 'секунды', 'секунд']));
-}, 1000);
+    dayOfTheWeek, 
+    hours, declOfNum(hours, DECLENSION_HOURS), 
+    minutes, declOfNum(minutes, DECLENSION_MINUTES), 
+    seconds, declOfNum(seconds, DECLENSION_SECONDS));
+}, REPEAT_OUTPUT);
