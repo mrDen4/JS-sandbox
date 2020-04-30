@@ -18,6 +18,8 @@ const users = [
 const login = prompt ('Введите логин');
 const password = prompt ('Введите пароль');
 
+authorization(login,password,users);
+
 function authorization(login,password,users) {
   const user = users.find(item => item.login == login);
 
@@ -27,5 +29,3 @@ function authorization(login,password,users) {
     alert('Привет ' + user.name);
   };
 }
-
-authorization(login,password,users);
