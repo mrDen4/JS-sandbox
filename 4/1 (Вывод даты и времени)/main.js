@@ -3,14 +3,14 @@ const DECLENSION_MINUTES = ['минута', 'минуты', 'минут'];
 const DECLENSION_SECONDS = ['секунда', 'секунды', 'секунд'];
 const REPEAT_OUTPUT = 1000;
 let showDate = setInterval(function () {
-  let date = new Date();
-  let day = date.getDate();
-  let dayOfTheWeek = date.toLocaleString('ru-RU', {weekday: 'long'});
-  let monthOfTheYear = date.toLocaleString('ru-RU', {month: 'long'});
-  let year = date.getFullYear();
-  let hours = date.getHours();  
-  let minutes = date.getMinutes();  
-  let seconds = date.getSeconds();  
+  const date = new Date();
+  const day = date.getDate();
+  const dayOfTheWeek = date.toLocaleString('ru-RU', {weekday: 'long'});
+  const monthOfTheYear = date.toLocaleString('ru-RU', {month: 'long'});
+  const year = date.getFullYear();
+  const hours = date.getHours();  
+  const minutes = date.getMinutes();  
+  const seconds = date.getSeconds();  
   console.log('Сегодня', day, 
     monthOfTheYear, 
     year, 'года', 
