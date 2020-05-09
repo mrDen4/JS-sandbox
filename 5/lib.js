@@ -3,11 +3,12 @@ const MAX_RANDOM = 1000;
 const NUMBEROFATTEMPTS = 10;
 //Функция для проверки на число
 (matchCheckWithRandomNumber = function () {
+    debugger
     const randomNumber = getRandomIntInclusive(MIN_RANDOM, MAX_RANDOM);
     let userNumber = getUserNumber();
 
     function countNumberOfAttempts() {
-        for (let i = 0; i < NUMBEROFATTEMPTS; i++) {
+        for (let i = 0; i < NUMBEROFATTEMPTS && userNumber != 0; i++) {
             if (userNumber < randomNumber && userNumber != null) {
                 userNumber = prompt('Вы ввели число меньше загаданного, введите другое число');
             }
@@ -25,10 +26,10 @@ const NUMBEROFATTEMPTS = 10;
     if (userNumber == randomNumber) {
         alert('Поздравляем, вы угадали число!')
     } 
-    if (userNumber != randomNumber && userNumber != null) {
+    if (userNumber != randomNumber && userNumber != 0 && userNumber != null) {
         let askUser = confirm('Вы проиграли, хотите начать заново?');
         if (askUser == true) {
             countNumberOfAttempts();
         }
     }
-})();
+});
