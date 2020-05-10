@@ -1,3 +1,5 @@
-(isNumber = function (n) {
-    return !isNaN(parseFloat(n)) && isFinite(n);
-});
+(function() {
+    window.isNumber = function(n) {
+        return !isNaN(parseFloat(n)) && isFinite(n);
+    }
+})();
