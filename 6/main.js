@@ -1,6 +1,4 @@
-let fullName = '';
-let UsersList = new UserList();
-let newUser = new User();
+const UsersList = new UserList();
 
 function User(firstName,lastName,regTime) {
   this.firstName = firstName;
@@ -18,17 +16,25 @@ function UserList() {
   };
 }
 
-while (fullName != null) {
-  fullName = prompt('Введите Имя и фамилию');
-  if (fullName != null) {
-    fullName = fullName.split(' ');
-    firstName = fullName[0];
-    lastName = fullName[1];
-    let regTime = new Date();
-    newUser = new User(firstName,lastName,regTime);
-    // UsersList = new UserList(newUser);
-    UsersList.add(newUser);
-  } else {
-    UsersList.getAllUsers();
-  }
-};
+function GetFullName() {
+  let fullName = '';
+  while (fullName != null) {
+    fullName = prompt('Введите Имя и фамилию');
+    if (fullName != null) {
+      fullName = fullName.split(' ');
+      firstName = fullName[0];
+      lastName = fullName[1];
+      let regTime = new Date();
+      if (lastName != undefined && firstName != '' && fullName[2] == undefined) {
+        newUser = new User(firstName,lastName,regTime);
+        UsersList.add(newUser);
+      } else {
+        alert('Неправильный ввод имени и фамилии');
+      }
+    } else {
+      UsersList.getAllUsers();
+    }
+  };
+}
+
+GetFullName();
