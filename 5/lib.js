@@ -3,34 +3,36 @@
     const MIN_RANDOM = 1;
     const MAX_RANDOM = 1000;
     const NUMBEROFATTEMPTS = 10;    
-    const randomNumber = getRandomIntInclusive(MIN_RANDOM, MAX_RANDOM);
+    let randomNumber = getRandomIntInclusive(MIN_RANDOM, MAX_RANDOM);
 
     window.matchCheckWithRandomNumber = function() {
+        let askUser = true;
         let userNumber = getUserNumber();
         function countingNumberOfAttempts() {
-            for (let i = 0; i < NUMBEROFATTEMPTS && userNumber != 0; i++) {
+            for (let i = 0; i < NUMBEROFATTEMPTS && userNumber != null; i++) {
                 if (userNumber < randomNumber && userNumber != null) {
-                    userNumber = prompt('Вы ввели число меньше загаданного, введите другое число');
+                    alert('Вы ввели число меньше загаданного, введите другое число')
+                    userNumber = getUserNumber();
                 }
                 if (userNumber > randomNumber && userNumber != null) {
-                    userNumber = prompt('Вы ввели число больше загаданного, введите другое число');
-                }
-                if (isNumber(userNumber) == false && userNumber != null) {
-                    userNumber = prompt('Вы ввели не число, введите пожалуйста еще раз');
+                    alert('Вы ввели число больше загаданного, введите другое число')
+                    userNumber = getUserNumber();
                 }
             }
         }
     
         countingNumberOfAttempts();
-    
-        if (userNumber == randomNumber) {
-            alert('Поздравляем, вы угадали число!')
-        } 
-        if (userNumber != randomNumber && userNumber != 0 && userNumber != null) {
-            let askUser = confirm('Вы проиграли, хотите начать заново?');
+
+        while (userNumber != randomNumber && userNumber != null && askUser == true) {
+            askUser = confirm('Вы проиграли, хотите начать заново?');
             if (askUser == true) {
+                randomNumber = getRandomIntInclusive(MIN_RANDOM, MAX_RANDOM);
                 countingNumberOfAttempts();
             }
         }
+
+        if (userNumber == randomNumber) {
+            alert('Поздравляем, вы угадали число!');
+        } 
     }
 })();
