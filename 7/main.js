@@ -1,4 +1,4 @@
-function Vehicle(speed, enginePower) {
+class Vehicle(speed, enginePower) {
   this.speed = speed;
   this.enginePower = enginePower;
 }
