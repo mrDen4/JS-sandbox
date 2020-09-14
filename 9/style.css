@@ -1,0 +1,42 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container__title {
+    margin-bottom: 20px;
+}
+
+.container__inp, .container__list {
+    width: 350px;
+}
+
+.container__inp {
+    margin-right: 10px;
+}
+
+.container__row {
+    margin-bottom: 20px;
+}
+
+.container__list {
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.list__item {
+    border: 1px solid #000000;
+    border-radius: 10px;
+    padding: 5px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.list__item--done {
+    text-decoration: line-through;
+}
