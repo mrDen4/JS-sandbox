@@ -1,6 +1,3 @@
-let div = document.body.firstElementChild;
-let ul = div.nextElementSibling;
-let liPit = ul.lastElementChild;
-console.log(div);
-console.log(ul);
-console.log(liPit);
+const createElement = domString => new DOMParser().parseFromString(domString, 'text/html').body.firstChild;
+
+const a = createElement('<a href="/home" class="active">Home</a>');

@@ -16,3 +16,9 @@
 .btn {
     margin-right: 10px;
 }
+
+.editor__text {
+    border: 1px solid #000000;
+    padding: 10px;
+    min-height: 50px;
+}

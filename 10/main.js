@@ -1,30 +1,35 @@
-let btnEdit = document.querySelector('.btns__btn-edit');
-let btnSave = document.querySelector('.btns__btn-save');
-let btnCancel = document.querySelector('.btns__btn-cancel');
-let text = document.querySelector('.editor__text');
-if (localStorage.getItem('text')) {
-    text.textContent = localStorage.getItem('text');
+let btnEditEL = document.querySelector('.js-btns__btn-edit');
+let btnSaveEL = document.querySelector('.js-btns__btn-save');
+let btnCancelEL = document.querySelector('.js-btns__btn-cancel');
+let textEL = document.querySelector('.js-editor__text');
+
+function changeAtr(elemArr, atr){
+    for (let i = 0; i < elemArr.length; i++) {
+        elemArr[i].toggleAttribute(atr);
+    }
+};
+
+if (localStorage.getItem('text') !== null) {
+    textEL.textContent = localStorage.getItem('text');
+    console.log('true');
 } else {
-    localStorage.setItem('text', text.textContent);
+    localStorage.setItem('text', textEL.textContent);
+    console.log(false);
 }
 
-btnEdit.addEventListener('click', function() {
-    text.setAttribute('contenteditable', 'true');
-    btnEdit.setAttribute('disabled', 'true');
-    btnSave.removeAttribute('disabled');
-    btnCancel.removeAttribute('disabled');
+btnEditEL.addEventListener('click', function() {
+    changeAtr([btnEditEL,btnSaveEL,btnCancelEL], 'disabled');
+    changeAtr([textEL], 'contenteditable');
 });
 
-btnSave.addEventListener('click', function() {
-    localStorage.setItem('text', text.textContent);
-    btnSave.setAttribute('disabled', 'true');
-    btnCancel.setAttribute('disabled', 'true');
-    btnEdit.removeAttribute('disabled');
-})
+btnSaveEL.addEventListener('click', function() {
+    localStorage.setItem('text', textEL.textContent);
+    changeAtr([btnEditEL,btnSaveEL,btnCancelEL], 'disabled');
+    changeAtr([textEL], 'contenteditable');
+});
 
-btnCancel.addEventListener('click', function() {
-    text.textContent = localStorage.getItem('text');
-    btnSave.setAttribute('disabled', 'true');
-    btnCancel.setAttribute('disabled', 'true');
-    btnEdit.removeAttribute('disabled');
-})
+btnCancelEL.addEventListener('click', function() {
+    textEL.textContent = localStorage.getItem('text');
+    changeAtr([btnEditEL,btnSaveEL,btnCancelEL], 'disabled');
+    changeAtr([textEL], 'contenteditable');
+});

@@ -1,24 +1,22 @@
-let btn = document.querySelector('.container__btn');
-let containerList = document.querySelector('.container__list'); 
-let input = document.querySelector('.container__inp');
+let btnEL = document.querySelector('.js-container__btn');
+let containerListEL = document.querySelector('.js-container__list'); 
+let inputEL = document.querySelector('.js-container__inp');
+let formEL = document.querySelector('.js-container__form');
 
-function addTask(inp) {
-    let containerItem = document.createElement("li");
-    containerItem.className = ("list__item");
-    containerItem.textContent = inp;
+function addTask(nameTag, text, atr) {
+    let containerItemEL = document.createElement(nameTag);
+    containerItemEL.className = (atr);
+    containerItemEL.textContent = text;
 
-    containerItem.addEventListener('click', function(){
+    containerItemEL.addEventListener('click', function(){
         this.classList.toggle('list__item--done');
     });
 
-    containerList.appendChild(containerItem);
+    containerListEL.appendChild(containerItemEL);
 }
 
-btn.addEventListener ('click', function(){
-    if (input.value !== '') {
-        addTask(input.value);
-        input.value = '';
-    } else {
-        alert('Введите задачу')
-    }
+formEL.addEventListener ('submit', function(ev){
+    addTask("li", inputEL.value, "list__item");
+    inputEL.value = '';
+    ev.preventDefault();
 });
