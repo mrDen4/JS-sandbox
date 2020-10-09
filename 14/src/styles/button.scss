@@ -1,0 +1,13 @@
+.btn {
+    border: 1px solid red;
+    color: red;
+    background: none;
+    border-radius: 10px;
+    padding: 10px;
+    transition: .3s;
+
+    &:hover {
+        background: red;
+        color: #fff;
+    }
+}

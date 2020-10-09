@@ -11,18 +11,18 @@
     <div class="container">
         <h1 class="container__title">ToDo App</h1>
         <div class="row d-flex col-md-12 justify-content-between">
-            <div class="col-md-7 container__block-list">
+            <section class="col-md-7 container__block-list">
                 <h2 class="block-list__title">Список дел</h2>
                 <ol class="container__list js-container__list">
                 </ol>
-            </div>
-            <form class="col-md-4 container__form js-container__form">
-                <h2 class="form__title">Добавьте новую задачу</h2>
-                <label class="form__label">
+            </section>
+            <section class="col-md-4 container__form-section">
+                <form class="container__form js-container__form">
+                    <h2 class="form__title">Добавьте новую задачу</h2>
                     <input type="text" class="container__inp js-container__inp" placeholder="Введите новую задачу" required>
-                </label>
-                <button type="submit" class="btn btn-primary container__btn js-container__btn">Добавить</button>
-            </form>
+                    <button type="submit" class="btn btn-primary container__btn js-container__btn">Добавить</button>
+                </form>
+            </section>
         </div>
     </div>
     <script src="./main.js"></script>
