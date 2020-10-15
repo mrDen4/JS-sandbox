@@ -1,8 +1,8 @@
-const ToDoListEL = document.querySelector('.js-container__list'); 
-const inputToDoEL = document.querySelector('.js-container__inp');
-const formAddTaskEL = document.querySelector('.js-container__form');
+const toDoListEL = document.querySelector('.container__list-js'); 
+const inputToDoEL = document.querySelector('.container__inp-js');
+const formAddTaskEL = document.querySelector('.container__form-js');
 
-function addElement(nameTag, text, atribute) {
+function elementCreation(nameTag, text, atribute) {
     const containerItemEL = document.createElement(nameTag);
     for (key in atribute){
         containerItemEL.setAttribute(key, atribute[key]);
@@ -11,14 +11,14 @@ function addElement(nameTag, text, atribute) {
     return containerItemEL;
 }
 
-ToDoListEL.addEventListener('click', function(ev){
-    if (ev.target.classList.contains('list__item')) {
+toDoListEL.addEventListener('click', function(ev){
+    if (ev.target.classList.contains('list__item-js')) {
         ev.target.classList.toggle('list__item--done');
     }
 });
 
 formAddTaskEL.addEventListener ('submit', function(ev){
     ev.preventDefault();
-    ToDoListEL.appendChild(addElement('li', inputToDoEL.value, {'class': 'list__item'}));
+    toDoListEL.appendChild(elementCreation('li', inputToDoEL.value, {'class': 'list__item list__item-js'}));
     this.reset();
 });

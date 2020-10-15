@@ -77,7 +77,7 @@
     width: 50%;
 }
 
-.list__item {
+.list__item-js {
     border: 1px solid #000000;
     border-radius: 10px;
     padding: 5px;
